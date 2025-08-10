@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 import 'package:noolee/destinations.dart';
 import 'package:noolee/widgets/disappearing_bottom_navigation_bar.dart';
 import 'package:noolee/widgets/disappearing_navigation_rail.dart';
+import 'package:noolee/widgets/edit_post.dart';
 import 'animations.dart';
 import 'widgets/animated_floating_action_button.dart';
 import 'models/data.dart' as data;
@@ -25,6 +28,12 @@ class MainApp extends StatelessWidget {
         colorScheme: ColorScheme.light(primary: Colors.grey.shade500),
       ),
       home: Feed(currentUser: data.user_0),
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        FlutterQuillLocalizations.delegate,
+      ],
     );
   }
 }
@@ -128,7 +137,10 @@ class _FeedState extends State<Feed> with SingleTickerProviderStateMixin {
           ),
           floatingActionButton: AnimatedFloatingActionButton(
             animation: _barAnimation,
-            onPressed: () {},
+            onPressed: () {
+              print('click on new post....');
+              MaterialPageRoute(builder: (context) => EditPost());
+            },
             child: const Icon(Icons.add),
           ),
           bottomNavigationBar: DisappearingBottomNavigationBar(

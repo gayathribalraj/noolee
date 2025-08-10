@@ -358,7 +358,9 @@ class _EmailReplyOptionsState extends State<EmailReplyOptions> {
                 onPressed: () {},
                 child: Text(
                   'Reply All',
+                
                   style: TextStyle(color: _colorScheme.onSurfaceVariant),
+                  
                 ),
               ),
             ),

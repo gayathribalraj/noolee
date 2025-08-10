@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:noolee/widgets/edit_post.dart';
 import '../animations.dart';
 import '../destinations.dart';
 import '../transitions/nav_rail_transition.dart';
@@ -35,7 +36,13 @@ class DisappearingNavigationRail extends StatelessWidget {
             AnimatedFloatingActionButton(
               animation: railFabAnimation,
               elevation: 0,
-              onPressed: () {},
+              onPressed: () {
+                print('click on new post....');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => EditPost()),
+                );
+              },
               child: const Icon(Icons.add),
             ),
           ],
