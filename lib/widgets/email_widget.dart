@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import '../models/models.dart';
 import 'star_button.dart';
+import 'like_dislike_button.dart';
+// import 'package:noolee/widgets/model_class.dart';
+// import 'package:noolee/widgets/dynamic_card.dart';
 
 enum EmailType { preview, threaded, primaryThreaded }
 
 class EmailWidget extends StatefulWidget {
+  
   const EmailWidget({
     super.key,
     required this.email,
@@ -345,7 +349,9 @@ class _EmailReplyOptionsState extends State<EmailReplyOptions> {
                   'Reply',
                   style: TextStyle(color: _colorScheme.onSurfaceVariant),
                 ),
+                
               ),
+              
             ),
             const SizedBox(width: 8),
             Expanded(
@@ -359,12 +365,28 @@ class _EmailReplyOptionsState extends State<EmailReplyOptions> {
                 child: Text(
                   'Reply All',
                   style: TextStyle(color: _colorScheme.onSurfaceVariant),
+                  
+
                 ),
+                
               ),
+            
             ),
+            LikeDislikeButton(dislikeCount: 20, likeCount: 23),
+
+           SizedBox(height: 8),
+
+        
+
+           
+
           ],
+          
         );
+         
+      
       },
+      
     );
   }
 }
